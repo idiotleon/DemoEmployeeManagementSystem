@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+/// a fake API, which behaves as a library or service interating with the database
 namespace Lib.Database.FakeApi
 {
     public class DatabaseApi

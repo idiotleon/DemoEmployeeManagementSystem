@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using System;
 
+/// a fake API, which behaves as a library or service interating with emails
 namespace Lib.EmailClient.FakeApi
 {
     public class EmailApi

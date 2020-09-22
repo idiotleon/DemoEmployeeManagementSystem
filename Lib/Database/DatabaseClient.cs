@@ -1,5 +1,6 @@
 ﻿using Lib.Database.FakeApi;
 using Model;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -16,12 +17,26 @@ namespace Lib.Database
 
         public async Task<List<Employee>> getAllEmployees()
         {
-            return await api.getAllEmployees();
+            try
+            {
+                return await api.getAllEmployees();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task updateAll(List<Employee> employees)
         {
-            await api.updateAll(employees);
+            try
+            {
+                await api.updateAll(employees);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

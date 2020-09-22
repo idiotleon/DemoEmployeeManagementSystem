@@ -1,5 +1,6 @@
 ﻿using Lib.EmailClient.FakeApi;
 using Model;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -16,7 +17,14 @@ namespace Lib.EmailClient
 
         public async Task sendEmail<T>(T email) where T : Email
         {
-            await emailApi.sendEmail(email.EmailAddress, email.EmailSubject, email.EmailBody);
+            try
+            {
+                await emailApi.sendEmail(email.EmailAddress, email.EmailSubject, email.EmailBody);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task batchSendEmails<T>(List<T> emails) where T : Email
@@ -27,7 +35,14 @@ namespace Lib.EmailClient
                 allTasks.Add(sendEmail(email));
             }
 
-            await Task.WhenAll(allTasks);
+            try
+            {
+                await Task.WhenAll(allTasks);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
